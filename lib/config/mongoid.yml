@@ -1,0 +1,12 @@
+development:
+  clients:
+    default:
+      database: honeypot
+      hosts:
+        - localhost:27017
+production:
+  clients:
+    default:
+      uri: mongodb+srv://kleber:teste_teste@cluster0-t0lwg.mongodb.net/test?retryWrites=true&w=majority
+      options:
+        server_selection_timeout: 5
