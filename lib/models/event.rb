@@ -7,4 +7,7 @@ class Event
     field :port, type: String
     field :logs, type: Array, default: []
     field :geolocation, type: String
+    field :country, type: String
+    field :latitude, type: String
+    field :longitude, type: String
 end

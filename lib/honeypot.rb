@@ -29,14 +29,23 @@ module Honeypot
                                 if record.nil?
                                     puts "#{remoteIp} was not found in the database"
                                     geolocation = "Geolocation not found"
+                                    country = "Geolocation not found"
+                                    latitude = "Geolocation not found"
+                                    longitude = "Geolocation not found"                                   
                                 else
                                     geolocation = record['city']['names']['en']
+                                    country = record['country']['names']['en']
+                                    latitude = record['location']['latitude']
+                                    longitude = record['location']['longitude']
                                 end
                                 event_json = {
                                 "host": "#{remoteIp}",
                                 "port": "#{remotePort}",
                                 "logs": log_array,
-                                "geolocation": "#{geolocation}"
+                                "geolocation": "#{geolocation}",
+                                "country": "#{country}",
+                                "latitude": "#{latitude}",
+                                "longitude": "#{longitude}"
                                 }
                                 puts event_json
                                 event_log = Event.create(event_json)
